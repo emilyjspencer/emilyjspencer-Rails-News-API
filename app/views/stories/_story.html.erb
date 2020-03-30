@@ -6,6 +6,7 @@
     <%= story['score'] %> points
     by <%= story['by'] %>
     <%= time_ago_in_words(story['time']) %> ago
-    | <%= story['descendants'] %> comments
+    | <%= link_to "#{story['descendants']} comments", story_path(story['id']) %>
+  </div>
   </div>
 </div>

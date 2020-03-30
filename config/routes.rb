@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   root to: 'stories#top'
 
+  get 'stories/:id', to: 'stories#show', as: :story
 end
