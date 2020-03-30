@@ -3,8 +3,8 @@ module Hackernews
     class Client
 
       def initialize
-        @host = 'YOUR_HOST'
-        @key = 'YOUR_API_KEY'
+        @host = ENV['HOST']
+        @key = ENV['API_KEY']
       end
 
       def item(id)
@@ -16,7 +16,7 @@ module Hackernews
       end
 
       private
-      
+
       def get(path)
         response = Excon.get(
           'https://' + @host + '/' + path + '.json?print=pretty',
