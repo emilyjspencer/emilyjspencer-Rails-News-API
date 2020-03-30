@@ -5,4 +5,11 @@ class StoriesController < ApplicationController
       @per_page = [@per_page, 20].min 
       @stories = client.topstories(@start, @per_page)
     end
+
+    def show
+        @story = client.item(params[:id])
+        @comments = (@story['kids'] || []).map do |comment|
+          client.item(comment)
+        end
+    end
 end  
